@@ -1,40 +1,49 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Routes, Route, Link } from 'react-router-dom';
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
+import DashboardPage from './pages/DashboardPage';
+import { useAuth } from './hooks/useAuth'; // Importa il nostro hook
 
 function App() {
-    const [count, setCount] = useState(0)
+    const { user, logout } = useAuth(); // Ottieni l'utente e la funzione di logout
 
     return (
-        <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-4">
-            <div className="flex justify-center mb-8">
-                <a href="https://vite.dev" target="_blank" className="mx-2">
-                    <img src={viteLogo} className="h-24 w-auto hover:scale-110 transition-transform" alt="Vite logo" />
-                </a>
-                <a href="https://react.dev" target="_blank" className="mx-2">
-                    <img src={reactLogo} className="h-24 w-auto hover:scale-110 transition-transform" alt="React logo" />
-                </a>
-            </div>
-            <h1 className="text-4xl font-bold mb-6 text-gray-800">Vite + React + Tailwind</h1>
-            <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
-                <div className="flex justify-center mb-4">
-                    <button
-                        onClick={() => setCount((count) => count + 1)}
-                        className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md transition-colors"
-                    >
-                        count is {count}
-                    </button>
-                </div>
-                <p className="text-gray-600 text-center">
-                    Edit <code className="bg-gray-100 px-1 rounded">src/App.jsx</code> and save to test HMR
-                </p>
-            </div>
-            <p className="mt-8 text-gray-500 text-sm">
-                Click on the Vite and React logos to learn more
-            </p>
+        <div>
+            <nav className="bg-gray-800 p-4 text-white">
+                <ul className="flex space-x-4 items-center">
+                    <li>
+                        <Link to="/">Dashboard</Link>
+                    </li>
+                    {user ? (
+                        // Se l'utente è loggato, mostra il pulsante di logout
+                        <li>
+                            <button onClick={logout} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                                Logout
+                            </button>
+                        </li>
+                    ) : (
+                        // Se l'utente non è loggato, mostra i link di login/registrazione
+                        <>
+                            <li>
+                                <Link to="/login">Login</Link>
+                            </li>
+                            <li>
+                                <Link to="/register">Registrazione</Link>
+                            </li>
+                        </>
+                    )}
+                </ul>
+            </nav>
+
+            <main>
+                <Routes>
+                    <Route path="/" element={<DashboardPage />} />
+                    <Route path="/login" element={<LoginPage />} />
+                    <Route path="/register" element={<RegisterPage />} />
+                </Routes>
+            </main>
         </div>
     )
 }
 
-export default App
+export default App;

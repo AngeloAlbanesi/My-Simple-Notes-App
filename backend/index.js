@@ -36,6 +36,10 @@ app.use(express.json()); // Permette al server di ricevere dati in formato JSON
 const userRoutes = require('./routes/user.routes');
 app.use('/api/users', userRoutes); // Usa le route degli utenti per /api/users
 
+//Route per le note
+const noteRoutes = require('./routes/note.routes');
+app.use('/api/notes', noteRoutes); // Usa le route delle note per /api/notes
+
 
 // Route di test per verificare che il server sia attivo
 app.get('/', (req, res) => {
