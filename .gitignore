@@ -89,6 +89,8 @@ node_modules/
 *.db
 *.db3
 database.sqlite # Specific name for your database file, if applicable
+# File del database SQLite
+database.sqlite
 # For example, if your database file is named 'mynotes.db', add 'mynotes.db'
 
 # Configurazione sensibile (decommentare se necessario)
