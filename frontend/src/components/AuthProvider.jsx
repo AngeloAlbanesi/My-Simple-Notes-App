@@ -66,7 +66,7 @@ export const AuthProvider = ({ children }) => {
                     const validateResponse = await authService.validateToken(response.data.token);
                     if (validateResponse.data.user) {
                         setUser(validateResponse.data.user);
-                        navigate('/'); // Reindirizza alla dashboard solo dopo aver impostato l'utente
+                        navigate('/my-notes'); // Reindirizza alla pagina delle note dopo il login
                     }
                 } catch (validateError) {
                     console.error("Errore nella validazione del token:", validateError);
