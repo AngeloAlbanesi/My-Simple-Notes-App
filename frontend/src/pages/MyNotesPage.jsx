@@ -57,6 +57,21 @@ const MyNotesPage = () => {
         setNoteToEdit(null);
     };
 
+    // Funzione per gestire l'eliminazione di una nota
+    const handleDeleteNote = async (noteId) => {
+        // Mostra una finestra di conferma prima di procedere
+        if (window.confirm('Sei sicuro di voler eliminare questa nota? L\'azione è irreversibile.')) {
+            try {
+                await noteService.deleteNote(noteId);
+                // Ricarica le note per aggiornare la lista
+                fetchNotes();
+            } catch (err) {
+                alert('Errore durante l\'eliminazione della nota.');
+                console.error(err);
+            }
+        }
+    };
+
     const renderContent = () => {
         if (isLoading) return <p className="text-gray-500">Caricamento note...</p>;
         if (error) return <p className="text-red-500">{error}</p>;
@@ -68,8 +83,9 @@ const MyNotesPage = () => {
                 </div>
             );
         }
-        // Passiamo la funzione handleEditNote a NoteList e quindi a NoteItem
-        return <NoteList notes={notes} onEdit={handleEditNote} />;
+        // Passiamo la nuova funzione handleDeleteNote a NoteList
+        return <NoteList notes={notes} onEdit={handleEditNote} onDelete={handleDeleteNote} />;
+        
     };
 
     return (

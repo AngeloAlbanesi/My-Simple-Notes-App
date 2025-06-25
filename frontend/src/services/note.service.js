@@ -15,10 +15,16 @@ const updateNote = (id, title, content) => {
     return apiClient.put(`/notes/${id}`, { title, content });
 };
 
+// Funzione per eliminare una nota
+const deleteNote = (id) => {
+    return apiClient.delete(`/notes/${id}`);
+};
+
 const noteService = {
     getAllNotes,
     createNote,
     updateNote,
+    deleteNote,
 };
 
 export default noteService;
