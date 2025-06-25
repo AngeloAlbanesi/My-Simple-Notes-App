@@ -1,9 +1,10 @@
 import { Routes, Route, Link } from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
-import DashboardPage from './pages/DashboardPage';
+import LandingPage from './pages/LandingPage';
+import MyNotesPage from './pages/MyNotesPage';
 import { useAuth } from './hooks/useAuth';
-import ProtectedRoute from './components/ProtectedRoute'; // <-- 1. Importa il componente
+import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
     const { user, logout } = useAuth();
@@ -17,11 +18,16 @@ function App() {
                         <Link to="/">Dashboard</Link>
                     </li>
                     {user ? (
-                        <li>
-                            <button onClick={logout} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
-                                Logout
-                            </button>
-                        </li>
+                        <>
+                            <li>
+                                <Link to="/my-notes">Le Mie Note</Link>
+                            </li>
+                            <li>
+                                <button onClick={logout} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                                    Logout
+                                </button>
+                            </li>
+                        </>
                     ) : (
                         <>
                             <li>
@@ -37,12 +43,12 @@ function App() {
 
             <main>
                 <Routes>
-                    {/* 2. Modifica la route della dashboard */}
+                    <Route path="/" element={<LandingPage />} />
                     <Route
-                        path="/"
+                        path="/my-notes"
                         element={
                             <ProtectedRoute>
-                                <DashboardPage />
+                                <MyNotesPage />
                             </ProtectedRoute>
                         }
                     />
