@@ -1,0 +1,113 @@
+# Node.js
+# ========================
+# Visual Studio Code
+.vscode/
+
+# Dependency directories
+node_modules/
+/dist
+/tmp
+
+# Log files
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Directory for compiled output
+lib/
+build/
+dist/
+tmp/
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+backend/.env
+frontend/.env
+
+# Coverage directory
+coverage/
+
+# Misc
+.npm/
+.yarn-cache/
+.eslintcache
+.nyc_output/
+.DS_Store
+.editorconfig
+
+# Lock files (opzionale, di solito è buona pratica tracciarli)
+# package-lock.json
+# yarn.lock
+frontend/package-lock.json
+backend/package-lock.json
+
+# Optional: if you use Webpack for a separate build directory for backend
+# backend/build/
+# backend/dist/
+
+# React (Create React App / Vite equivalent)
+# ========================
+# React-specific build output
+build/
+# You might have another build directory like 'dist' if using Vite
+dist/
+
+# Create React App specific files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Generated files
+reportWebVitals.js
+setupTests.js
+
+# ESLint cache
+.eslintcache
+
+# Dependency directories (already covered by Node.js section, but good to reiterate)
+node_modules/
+
+# SQLite Database
+# ========================
+# Exclude SQLite database files. Adjust the name if your database file has a specific name.
+*.sqlite
+*.sqlite3
+*.db
+*.db3
+database.sqlite # Specific name for your database file, if applicable
+# For example, if your database file is named 'mynotes.db', add 'mynotes.db'
+
+# Configurazione sensibile (decommentare se necessario)
+# backend/config/config.production.json
+# backend/config/config.development.json
+
+# System generated files
+.DS_Store
+Thumbs.db
+
+# IDE and Editor files (common)
+.idea/
+.project
+.classpath
+.settings/
+*.sublime-project
+*.sublime-workspace
+.history/
+
+# Note e documentazione personale
+CLAUDE.md
+
