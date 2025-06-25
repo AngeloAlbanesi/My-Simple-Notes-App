@@ -17,7 +17,7 @@ const LandingPage = () => {
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link 
                             to="/register" 
-                            className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition duration-200"
+                            className="bg-blue-600 hover:bg-blue-700 !text-white hover:!text-white font-bold py-3 px-8 rounded-lg text-lg transition duration-200"
                         >
                             Inizia Gratis
                         </Link>
