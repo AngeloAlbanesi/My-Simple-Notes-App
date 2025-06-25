@@ -132,7 +132,7 @@ git --version
 ### 1. Clona il Repository
 
 ```bash
-git clone https://github.com/tuousername/My-Simple-Notes-App.git
+git clone https://github.com/AngeloAlbanesi/My-Simple-Notes-App.git
 cd My-Simple-Notes-App
 ```
 
