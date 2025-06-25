@@ -16,9 +16,19 @@ const login = (username, password) => {
     });
 };
 
+// Funzione per validare il token con il backend
+const validateToken = (token) => {
+    return apiClient.get('/users/validate', {
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+    });
+};
+
 const authService = {
     register,
     login,
+    validateToken,
 };
 
 export default authService;

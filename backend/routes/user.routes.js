@@ -11,6 +11,10 @@ router.post('/register', authController.register);
 // POST /api/users/login
 router.post('/login', authController.login);
 
+// Route per la validazione del token
+// GET /api/users/validate
+router.get('/validate', verifyToken, authController.validateToken);
+
 // Route protetta di esempio
 // GET /api/users/profile
 // Il middleware 'verifyToken' viene eseguito prima della funzione del controller.

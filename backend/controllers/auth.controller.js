@@ -94,3 +94,32 @@ exports.login = async (req, res) => {
         res.status(500).json({ message: 'Errore interno del server.' });
     }
 };
+
+// Funzione per validare un token JWT
+exports.validateToken = async (req, res) => {
+    try {
+        // A questo punto il middleware ha già verificato il token
+        // e ha aggiunto req.user con i dati decodificati
+        const userId = req.user.id;
+
+        // Cerca l'utente nel database per assicurarsi che esista ancora
+        const user = await User.findByPk(userId);
+
+        if (!user) {
+            return res.status(401).json({ message: 'Utente non trovato.' });
+        }
+
+        // Restituisce i dati dell'utente
+        res.status(200).json({
+            message: 'Token valido.',
+            user: {
+                id: user.id,
+                username: user.username
+            }
+        });
+
+    } catch (error) {
+        console.error('Errore durante la validazione del token:', error);
+        res.status(500).json({ message: 'Errore interno del server.' });
+    }
+};
