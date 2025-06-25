@@ -64,7 +64,7 @@ const NoteForm = ({ onSave, noteToEdit, onCancelEdit }) => {
                         <button
                             type="button"
                             onClick={onCancelEdit}
-                            className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-lg transition duration-200"
+                            className="bg-gray-200 hover:bg-gray-300 text-white font-bold py-2 px-4 rounded-lg transition duration-200"
                         >
                             Annulla
                         </button>
