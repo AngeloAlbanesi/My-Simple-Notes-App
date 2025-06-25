@@ -58,5 +58,3 @@ const DashboardPage = () => {
 };
 
 export default DashboardPage;
-
-//TODO: fare in modo che quando un utente si loggi , visualizza direttamente la pagina delle sue note, e non la landing page
