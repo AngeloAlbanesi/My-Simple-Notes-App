@@ -1,12 +1,22 @@
 import React from 'react';
 
-const NoteItem = ({ note }) => {
+const NoteItem = ({ note, onEdit }) => {
     return (
         <div className="bg-white shadow-lg rounded-lg p-4 my-2 w-full max-w-2xl">
-            <h3 className="text-xl font-bold text-gray-800">{note.title}</h3>
-            <p className="text-gray-600 mt-2">{note.content}</p>
+            <div className="flex justify-between items-start">
+                <div>
+                    <h3 className="text-xl font-bold text-gray-800">{note.title}</h3>
+                    <p className="text-gray-600 mt-2">{note.content}</p>
+                </div>
+                {/* Pulsante di modifica */}
+                <button
+                    onClick={() => onEdit(note)} // Passa l'intera nota alla funzione onEdit
+                    className="bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-1 px-3 rounded-lg text-sm transition duration-200"
+                >
+                    Modifica
+                </button>
+            </div>
             <div className="text-right text-xs text-gray-400 mt-4">
-                {/* Formattiamo la data per una migliore leggibilità */}
                 Aggiornato il: {new Date(note.updatedAt).toLocaleDateString()}
             </div>
         </div>

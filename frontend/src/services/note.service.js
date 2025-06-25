@@ -1,15 +1,24 @@
 import apiClient from './apiClient';
 
 // Funzione per ottenere tutte le note dell'utente autenticato
-// Grazie all'interceptor di apiClient, il token verrà aggiunto automaticamente.
 const getAllNotes = () => {
     return apiClient.get('/notes');
 };
 
-// In futuro aggiungeremo qui le altre funzioni (create, update, delete)
+// Funzione per creare una nuova nota
+const createNote = (title, content) => {
+    return apiClient.post('/notes', { title, content });
+};
+
+// Funzione per aggiornare una nota esistente
+const updateNote = (id, title, content) => {
+    return apiClient.put(`/notes/${id}`, { title, content });
+};
 
 const noteService = {
     getAllNotes,
+    createNote,
+    updateNote,
 };
 
 export default noteService;
