@@ -24,13 +24,13 @@ const RegisterPage = () => {
     };
 
     return (
-        <div className="min-h-screen bg-slate-100 flex flex-col justify-center items-center">
-            <div className="bg-white shadow-md rounded-lg p-8 max-w-sm w-full">
-                <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">Crea un Account</h2>
+        <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white flex flex-col justify-center items-center">
+            <div className="bg-white shadow-lg rounded-2xl p-8 max-w-md w-full mx-4">
+                <h2 className="text-3xl font-bold text-center text-gray-900 mb-8">Crea un Account</h2>
                 <form onSubmit={handleSubmit}>
                     {/* Campo Username */}
-                    <div className="mb-4">
-                        <label htmlFor="username" className="block text-gray-700 text-sm font-bold mb-2">
+                    <div className="mb-6">
+                        <label htmlFor="username" className="block text-gray-700 text-sm font-semibold mb-2">
                             Username
                         </label>
                         <input
@@ -38,13 +38,13 @@ const RegisterPage = () => {
                             id="username"
                             value={username}
                             onChange={(e) => setUsername(e.target.value)}
-                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full py-3 px-4 border border-gray-300 rounded-lg text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200"
                             required
                         />
                     </div>
                     {/* Campo Password */}
-                    <div className="mb-6">
-                        <label htmlFor="password" className="block text-gray-700 text-sm font-bold mb-2">
+                    <div className="mb-8">
+                        <label htmlFor="password" className="block text-gray-700 text-sm font-semibold mb-2">
                             Password
                         </label>
                         <input
@@ -52,23 +52,23 @@ const RegisterPage = () => {
                             id="password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
-                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full py-3 px-4 border border-gray-300 rounded-lg text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200"
                             required
                         />
                     </div>
                     {/* Pulsante di Invio */}
-                    <div className="flex items-center justify-between">
+                    <div className="mb-6">
                         <button
                             type="submit"
-                            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
+                            className="w-full !bg-blue-600 hover:!bg-blue-700 !text-white font-bold py-3 px-6 rounded-lg text-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 !border-0"
                         >
                             Registrati
                         </button>
                     </div>
                 </form>
-                <p className="text-center text-gray-500 text-xs mt-6">
+                <p className="text-center text-gray-600 text-sm">
                     Hai già un account?{' '}
-                    <Link to="/login" className="text-blue-500 hover:text-blue-700 font-bold">
+                    <Link to="/login" className="text-blue-600 hover:text-blue-700 font-semibold transition duration-200">
                         Accedi
                     </Link>
                 </p>
