@@ -11,19 +11,22 @@ function App() {
 
     return (
         <div>
-            <nav className="bg-gray-800 p-4 text-white">
-                {/* La navigazione rimane invariata */}
+            <nav className="bg-white border-b-2 border-blue-600 p-4">
                 <ul className="flex space-x-4 items-center">
                     <li>
-                        <Link to="/">Dashboard</Link>
+                        <Link to="/" className="text-blue-600 font-bold py-2 px-4 rounded-lg border-2 border-blue-600 hover:bg-gray-50 transition duration-200">
+                            Dashboard
+                        </Link>
                     </li>
                     {user ? (
                         <>
                             <li>
-                                <Link to="/my-notes">Le Mie Note</Link>
+                                <Link to="/my-notes" className="text-blue-600 font-bold py-2 px-4 rounded-lg border-2 border-blue-600 hover:bg-gray-50 transition duration-200">
+                                    Le Mie Note
+                                </Link>
                             </li>
                             <li>
-                                <button onClick={logout} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                                <button onClick={logout} className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg transition duration-200">
                                     Logout
                                 </button>
                             </li>
@@ -31,10 +34,14 @@ function App() {
                     ) : (
                         <>
                             <li>
-                                <Link to="/login">Login</Link>
+                                <Link to="/login" className="text-blue-600 font-bold py-2 px-4 rounded-lg border-2 border-blue-600 hover:bg-gray-50 transition duration-200">
+                                    Login
+                                </Link>
                             </li>
                             <li>
-                                <Link to="/register">Registrazione</Link>
+                                <Link to="/register" className="text-blue-600 font-bold py-2 px-4 rounded-lg border-2 border-blue-600 hover:bg-gray-50 transition duration-200">
+                                    Registrazione
+                                </Link>
                             </li>
                         </>
                     )}
